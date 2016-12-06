@@ -1,13 +1,13 @@
 <?php namespace App\Email\Http\Controllers\Api\v1;
 
 use Melisa\Laravel\Http\Controllers\Controller;
-use App\Email\Http\Requests\BinnacleProcessRequest;
-use App\Email\Logics\Binnacle\ProcessLogic;
+use App\Email\Http\Requests\SendSimpleRequest;
+use App\Email\Logics\Send\SimpleLogic;
 
 class SendController extends Controller
 {
     
-    public function process(BinnacleProcessRequest $request, ProcessLogic $logic)
+    public function simple(SendSimpleRequest $request, SimpleLogic $logic)
     {
         
         $output = $logic->init($request->allValid());

@@ -1,36 +1,41 @@
-<?php namespace App\Email\Logics\Binnacle;
+<?php namespace App\Email\Logics\Send;
 
 use Melisa\core\LogicBusiness;
+use Illuminate\Support\Facades\Mail;
+use App\Email\Mail\Simple;
 
 /**
  * 
  *
  * @author Luis Josafat Heredia Contreras
  */
-class ProcessLogic
+class SimpleLogic
 {
     use LogicBusiness;
     
-    protected $binnacle;
-    protected $listeners;
-    
-    public function __construct(
-        BinnacleRepository $binnacle,
-        ListenersRepository $listeners
-    ) {
+    public function init(array $input) {
         
-        $this->binnacle = $binnacle;
-        $this->listeners = $listeners;
+        $this->debug('Init logic process send simple email to {b}', [
+            'b'=>$input['address']
+        ]);
+        
+        Mail::to($input['address'])->sendNow(new Simple($input));
+        
+        return $this->processErrors();
         
     }
     
-    public function init(array $input) {
+    public function processErrors() {
         
-        $this->debug('Init logic process binnacle {b}', [
-            'b'=>$input['idBinnacle']
-        ]);
+        $failures = Mail::failures();
         
+        if( count($failures) === 0 ) {
+            
+            return true;
+            
+        }
         
+        return $this->error('failures emails: ', implode(',', $failures));
         
     }
     

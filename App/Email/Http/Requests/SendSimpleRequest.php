@@ -10,7 +10,9 @@ use Melisa\Laravel\Http\Requests\Generic;
 class SendSimpleRequest extends Generic
 {
     protected $rules = [
-        'data'=>'required|max:36',
+        'address'=>'required|max:50',
+        'subject'=>'required|max:100',
+        'body'=>'required|max:100',
     ];
     
     public function rules()
