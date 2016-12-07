@@ -10,10 +10,10 @@ class ApplicationSeeder extends Seeder
     public function run()
     {
         
-        $this->installApplication('emails', [
+        $this->installApplication('email', [
             'name'=>'Email',
             'description'=>'Application Email',
-            'nameSpace'=>'Melisa.emails',
+            'nameSpace'=>'Melisa.email',
             'typeSecurity'=>'art'
         ]);
         

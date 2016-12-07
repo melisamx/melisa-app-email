@@ -10,7 +10,7 @@ class OptionsSeeder extends Seeder
     public function run()
     {
         
-        $this->installOption('option.emails.access', [
+        $this->installOption('option.email.access', [
             'name'=>'Option main de aplicación emails',
             'text'=>'Email',
             'isSubMenu'=>true

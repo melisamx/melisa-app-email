@@ -17,7 +17,7 @@ class Simple extends Mailable
     public function build()
     {
         
-        return $this->view('mails.simple', $this->mail);
+        return $this->view('emails.simple', $this->mail);
         
     }
     
