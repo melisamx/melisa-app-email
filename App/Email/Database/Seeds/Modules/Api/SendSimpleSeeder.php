@@ -1,11 +1,9 @@
 <?php namespace App\Email\Database\Seeds\Modules\Api;
 
-use Illuminate\Database\Seeder;
-use Melisa\Laravel\Database\InstallModule;
+use Melisa\Laravel\Database\InstallSeeder;
 
-class SendSimpleSeeder extends Seeder
+class SendSimpleSeeder extends InstallSeeder
 {
-    use InstallModule;
     
     public function run()
     {
