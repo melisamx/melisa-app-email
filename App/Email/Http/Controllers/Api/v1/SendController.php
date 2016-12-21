@@ -4,6 +4,11 @@ use Melisa\Laravel\Http\Controllers\Controller;
 use App\Email\Http\Requests\SendSimpleRequest;
 use App\Email\Logics\Send\SimpleLogic;
 
+/**
+ * 
+ *
+ * @author Luis Josafat Heredia Contreras
+ */
 class SendController extends Controller
 {
     

@@ -2,6 +2,11 @@
 
 use Illuminate\Mail\Mailable;
 
+/**
+ * 
+ *
+ * @author Luis Josafat Heredia Contreras
+ */
 class Simple extends Mailable
 {
     
