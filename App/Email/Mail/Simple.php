@@ -1,4 +1,6 @@
-<?php namespace App\Email\Mail;
+<?php 
+
+namespace App\Email\Mail;
 
 use Illuminate\Mail\Mailable;
 
@@ -13,17 +15,15 @@ class Simple extends Mailable
     protected $mail;
     
     public function __construct(array $mail)
-    {
-        
-        $this->mail = $mail;
-        
+    {        
+        $this->mail = $mail;        
     }
     
     public function build()
-    {
-        
-        return $this->view('emails.simple', $this->mail);
-        
+    {        
+        return $this
+            ->subject($this->mail['subject'])
+            ->view('emails.simple', $this->mail);        
     }
     
 }

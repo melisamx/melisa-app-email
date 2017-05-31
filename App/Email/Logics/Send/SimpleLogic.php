@@ -1,4 +1,6 @@
-<?php namespace App\Email\Logics\Send;
+<?php 
+
+namespace App\Email\Logics\Send;
 
 use Melisa\core\LogicBusiness;
 use Illuminate\Support\Facades\Mail;
@@ -13,30 +15,37 @@ class SimpleLogic
 {
     use LogicBusiness;
     
-    public function init(array $input) {
-        
+    public function init(array $input)
+    {        
         $this->debug('Init logic process send simple email to {b}', [
             'b'=>$input['address']
         ]);
         
-        Mail::to($input['address'])->sendNow(new Simple($input));
+        $this->sendEmail($input);
         
-        return $this->processErrors();
-        
+        return $this->processErrors();        
     }
     
-    public function processErrors() {
+    public function sendEmail(&$input)       
+    {
+        $mail = Mail::to($input['address']);
         
-        $failures = Mail::failures();
-        
-        if( count($failures) === 0 ) {
-            
-            return true;
-            
+        if( isset($input['cc']) && !empty($input['cc'])) {
+            $mail = $mail->cc($input['cc']);
         }
         
-        return $this->error('failures emails: ', implode(',', $failures));
+        $mail->sendNow(new Simple($input));
+    }
+    
+    public function processErrors()
+    {        
+        $failures = Mail::failures();
         
+        if( count($failures) === 0 ) {            
+            return true;            
+        }
+        
+        return $this->error('failures emails: ', implode(',', $failures));        
     }
     
 }
