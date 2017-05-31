@@ -14,7 +14,7 @@ class SendSimpleRequest extends Generic
     protected $rules = [
         'address'=>'required|max:95|email',
         'subject'=>'required|max:100',
-        'body'=>'required|max:100',
+        'body'=>'required|max:999',
         'cc'=>'sometimes|max:100|email',
     ];    
 }
