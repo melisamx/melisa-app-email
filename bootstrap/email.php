@@ -11,15 +11,9 @@
 |
 */
 
-require_once __DIR__ . '/../App/Email/Application.php';
+use App\Email\Application;
 
-$app = new App\Email\Application(
-    [
-        'base'=>  realpath(__DIR__ . '/../App/Email'),
-        'storage'=> realpath(__DIR__ . '/../App/Email/storage'),
-        'storageSession'=>realpath(__DIR__ . '/../storage/framework/sessions'),
-    ]
-);
+$app = new Application(realpath(__DIR__ . '/../App/Email'));
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +28,7 @@ $app = new App\Email\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    Melisa\Laravel\Http\Kernel::class
+    Melisa\Laravel\Http\KernelSecure::class
 );
 
 $app->singleton(

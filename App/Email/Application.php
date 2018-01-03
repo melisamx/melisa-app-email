@@ -1,4 +1,6 @@
-<?php namespace App\Email;
+<?php
+
+namespace App\Email;
 
 use Melisa\Laravel\ApplicationBase;
 
