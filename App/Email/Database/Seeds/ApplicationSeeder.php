@@ -13,16 +13,14 @@ class ApplicationSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->installApplication('email', [
             'name'=>'Email',
             'description'=>'Application Email',
             'nameSpace'=>'Melisa.email',
             'typeSecurity'=>'art',
-            'version'=>'1.0.1'
-        ]);
-        
+            'version'=>'1.1.0'
+        ]);        
     }
     
 }
