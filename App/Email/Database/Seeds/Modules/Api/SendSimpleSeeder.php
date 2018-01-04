@@ -1,4 +1,6 @@
-<?php namespace App\Email\Database\Seeds\Modules\Api;
+<?php
+
+namespace App\Email\Database\Seeds\Modules\Api;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
