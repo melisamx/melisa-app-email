@@ -5,5 +5,5 @@ Route::group([
     'middleware'=>'auth.basic',
     'namespace' =>'v1'
 ], function() {    
-    Route::post('send/simple', 'SendController@simple');    
+    Route::post('send/simple', 'SendController@not');    
 });
